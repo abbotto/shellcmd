@@ -1,0 +1,17 @@
+{
+	"extends": "airbnb-base",
+	"rules": {
+		"brace-style": [2, "stroustrup"],
+		"comma-dangle": ["error", {
+			"arrays": "never",
+			"objects": "never",
+			"imports": "never",
+			"exports": "never",
+			"functions": "never"
+		}],
+		"indent": [2, "tab"],
+		"no-console": [0],
+		"no-tabs": [0],
+		"semi-style": [0]
+	}
+}

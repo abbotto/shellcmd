@@ -1,0 +1,29 @@
+# Blacklist Every File
+*
+
+# Whitelist Top-Level Files
+!.eslintrc.js
+!.gitignore
+!.nvmrc
+!LICENSE
+!README.md
+!shellcmd.js
+!package.json
+
+# Whitelist Doc Folder
+!/doc
+!/doc/**/*
+
+# Whitelist Source Files
+!/task
+!/task/**/*
+
+# Whitelist Dev Files
+!/dev
+!/dev/**/*
+
+# Blacklist Other Files
+.DS_Store
+.fusebox
+/doc/api
+/doc/api/**/*
