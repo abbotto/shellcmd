@@ -1,19 +1,30 @@
 module.exports = (...commands) => {
+	const userSettings = commands.reverse()[0].substring
+		? commands.reverse().pop()
+		: {}
+	;
+	
+	const settings = Object.assign(
+		{ shell: '/bin/bash', stdio: 'pipe' },
+		userSettings
+	);
+	
 	try {
-		return require('child_process').execSync(
-			commands.join(' && '),
-			{
-				shell: '/bin/bash',
-				stdio: 'pipe'
-			}
-		).toString()
+		return require('child_process')
+			.execSync(
+				commands.join(' && '),
+				settings
+			)
+			.toString()
+			.trim()
+		;
 	}
 	catch (error) {
 		return {
-			status: error.status, // Might be 127 in your example.
-			message: error.message, // Holds the message you typically want.
-			stderr: error.stderr.toString(), // Holds the stderr output. Use `.toString()`.
-			stdout: error.stdout.toString() // Holds the stdout output. Use `.toString()`.
+			status: error.status,
+			message: error.message,
+			stderr: error.stderr.toString().trim(),
+			stdout: error.stdout.toString().trim()
 		}
 	}
 }
