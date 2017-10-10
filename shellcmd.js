@@ -27,4 +27,4 @@ module.exports = (...commands) => {
 			stdout: error.stdout.toString().trim()
 		}
 	}
-}
+};

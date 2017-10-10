@@ -9,14 +9,6 @@
 		'cmd 1',
 		'cmd 2',
 		'cmd n',
-		'...'
+		'...',
+		{ settings }
 	)
-
-## Output
-
-	{
-		error,
-		stdout,
-		stderr
-	}
-	
