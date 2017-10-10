@@ -7,7 +7,7 @@
     "doc": "doc"
   },
   "scripts": {
-    "bump": "node task/dev/bump.js",
+    "bump": "node dev/bump.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

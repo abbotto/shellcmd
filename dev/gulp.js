@@ -2,10 +2,6 @@
 
 const gulp = require("gulp");
 const bump = require("gulp-bump");
-
-// Load environment variables
-require("dotenv").config();
-
 const root = __dirname.slice(0, -4);
 
 // Versioning
