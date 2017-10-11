@@ -1,14 +1,14 @@
 module.exports = (...commands) => {
-	const userSettings = commands.reverse()[0].substring
-		? commands.reverse().pop()
+	const userSettings = !commands.reverse()[0].substring
+		? (commands.reverse()).pop()
 		: {}
 	;
-	
+
 	const settings = Object.assign(
 		{ shell: '/bin/bash', stdio: 'pipe' },
 		userSettings
 	);
-	
+
 	try {
 		return require('child_process')
 			.execSync(
