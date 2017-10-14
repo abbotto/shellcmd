@@ -1,13 +1,19 @@
 module.exports = (...commands) => {
-	const userSettings = !commands[commands.length - 1].substring
-		? commands.pop()
-		: {}
+	const lastArg = commands[commands.length - 1];
+	
+	const isUserSettings = lastArg === Object(lastArg)
+		&& typeof lastArg !== 'function'
+		&& !lastArg.length
 	;
 	
-	const settings = Object.assign(
-		{ shell: '/bin/bash', stdio: 'pipe' },
-		userSettings
-	);
+	const settings =
+		Object.assign(
+			{ shell: '/bin/bash', stdio: 'pipe' },
+		isUserSettings
+			? commands.pop()
+			: {}
+		)
+	;
 	
 	try {
 		return require('child_process')
