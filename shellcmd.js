@@ -1,6 +1,6 @@
 module.exports = (...commands) => {
 	const lastArg = commands[commands.length - 1];
-	
+
 	const isUserSettings = lastArg === Object(lastArg)
 		&& typeof lastArg !== 'function'
 		&& !lastArg.length
@@ -16,13 +16,16 @@ module.exports = (...commands) => {
 	;
 	
 	try {
-		return require('child_process')
+		const output = require('child_process')
 			.execSync(
 				commands.join(' && '),
 				settings
 			)
-			.toString()
-			.trim()
+		;
+		
+		return settings.stdio === 'pipe'
+			? output.toString().trim()
+			: output
 		;
 	}
 	catch (error) {
