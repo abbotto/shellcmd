@@ -8,7 +8,11 @@ module.exports = (...commands) => {
 	
 	const settings =
 		Object.assign(
-			{ shell: '/bin/bash', stdio: 'pipe' },
+			{
+				encoding: 'utf-8',
+				shell: '/bin/bash',
+				stdio: 'pipe'
+			},
 		isUserSettings
 			? commands.pop()
 			: {}

@@ -1,6 +1,6 @@
 {
   "name": "shellcmd",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Run shell commands from NodeJS",
   "main": "shellcmd.js",
   "directories": {
