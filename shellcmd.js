@@ -36,8 +36,14 @@ module.exports = (...commands) => {
 		return {
 			status: error.status,
 			message: error.message,
-			stderr: error.stderr.toString().trim(),
-			stdout: error.stdout.toString().trim()
-		}
+			stderr: error.stderr
+				? error.stderr.toString().trim()
+				: error
+			,
+			stdout: error.stdout
+				? error.stdout.toString().trim()
+				: error
+			}
+		;
 	}
 };
