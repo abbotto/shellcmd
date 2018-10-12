@@ -33,6 +33,13 @@ module.exports = (...commands) => {
 		;
 	}
 	catch (error) {
+		if (error.stdout === error.status
+			&& error.stdout === error.message
+			&& error.stdout === error.stderror
+		) {
+			return error.stdout.toString().trim();
+		}
+		
 		return {
 			status: error.status,
 			message: error.message,
