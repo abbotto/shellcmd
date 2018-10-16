@@ -1,9 +1,15 @@
 module.exports = (...commands) => {
-	const lastArg = commands[commands.length - 1];
+	let stdout = 0;
+	
+	if (parseInt(commands[commands.length - 1], 10)) {
+		stdout = commands.pop();
+	}
 
-	const isUserSettings = lastArg === Object(lastArg)
-		&& typeof lastArg !== 'function'
-		&& !lastArg.length
+	const settingsObject = commands[commands.length - 1];
+
+	const isUserSettings = settingsObject === Object(settingsObject)
+		&& typeof settingsObject !== 'function'
+		&& !settingsObject.length
 	;
 	
 	const settings =
@@ -33,10 +39,7 @@ module.exports = (...commands) => {
 		;
 	}
 	catch (error) {
-		if (error.stdout === error.status
-			&& error.stdout === error.message
-			&& error.stdout === error.stderror
-		) {
+		if (stdout === 1) {
 			return error.stdout.toString().trim();
 		}
 		

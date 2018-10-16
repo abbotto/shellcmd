@@ -11,7 +11,11 @@
 		'cmd n',
 		'...',
 		{ options }
+		, 1
 	)
+
+### Force `stdout` output for errors
+When `1` is passed as the final argument, `stdout` will be returned instead of an object when an error is encountered.
 
 ## Options [Object]
 - `cwd` [string]
